@@ -1,0 +1,6 @@
+{
+  "name": "Sunrays School Forum",
+  "description": "Official Sunrays School anonymous community forum and chat application with real-time Firebase cloud backend, 5GB storage for images and videos, support agents, verified badges, and proctoring.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,66 @@
+{
+  "entities": {
+    "ForumPost": {
+      "title": "ForumPost",
+      "description": "Public and anonymous student forum posts and discussions",
+      "type": "object",
+      "properties": {
+        "channelId": { "type": "string", "maxLength": 100 },
+        "title": { "type": "string", "maxLength": 300 },
+        "content": { "type": "string", "maxLength": 5000 },
+        "authorRole": { "type": "string", "maxLength": 50 },
+        "authorCode": { "type": "string", "maxLength": 100 },
+        "isAnonymous": { "type": "boolean" },
+        "upvotes": { "type": "number" },
+        "downvotes": { "type": "number" },
+        "createdAt": { "type": "string", "maxLength": 100 }
+      },
+      "required": ["channelId", "title", "content", "authorCode"]
+    },
+    "ChatMessage": {
+      "title": "ChatMessage",
+      "description": "Real-time anonymous chat messages between students and support agents",
+      "type": "object",
+      "properties": {
+        "conversationId": { "type": "string", "maxLength": 150 },
+        "senderCode": { "type": "string", "maxLength": 100 },
+        "senderRole": { "type": "string", "maxLength": 50 },
+        "receiverCode": { "type": "string", "maxLength": 100 },
+        "text": { "type": "string", "maxLength": 4000 },
+        "timestamp": { "type": "string", "maxLength": 100 },
+        "attachmentUrl": { "type": "string", "maxLength": 1000 }
+      },
+      "required": ["conversationId", "senderCode", "text", "timestamp"]
+    },
+    "StudentProfile": {
+      "title": "StudentProfile",
+      "description": "Student academic, coaching, and campus directory records",
+      "type": "object",
+      "properties": {
+        "fullName": { "type": "string", "maxLength": 200 },
+        "roleTitle": { "type": "string", "maxLength": 200 },
+        "category": { "type": "string", "maxLength": 100 },
+        "classGrade": { "type": "string", "maxLength": 150 },
+        "board": { "type": "string", "maxLength": 100 },
+        "rollNo": { "type": "string", "maxLength": 100 },
+        "admissionNo": { "type": "string", "maxLength": 100 },
+        "avatarUrl": { "type": "string", "maxLength": 1000 }
+      },
+      "required": ["fullName", "category"]
+    }
+  },
+  "firestore": {
+    "/forum_posts/{postId}": {
+      "schema": "ForumPost",
+      "description": "Campus forum discussion threads"
+    },
+    "/chat_messages/{messageId}": {
+      "schema": "ChatMessage",
+      "description": "Real-time peer and counselor direct messages"
+    },
+    "/student_profiles/{profileId}": {
+      "schema": "StudentProfile",
+      "description": "Verified student and faculty directory records"
+    }
+  }
+}
